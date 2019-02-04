@@ -60,7 +60,7 @@ func commandByDeviceID(did string, cid string, b string, p bool) (string, int) {
 		return "", http.StatusForbidden
 	}
 	if p {	
-		url := d.Servie.Addressable.GetBaseURL() + strings.Replace(c.Put.Action.Path, DEVICEIDURLPARAM, d.Id.Hex(), -1)
+		url := d.Service.Addressable.GetBaseURL() + strings.Replace(c.Put.Action.Path, DEVICEIDURLPARAM, d.Id.Hex(), -1)
 		loggingClient.Info("Issuing PUT command to: " + url)
 		req, err := http.NewRequest(PUT, url, strings.NewReader(b))
 		if err != nil {
